@@ -1,8 +1,18 @@
-package com.example.ejemplopersistencia.model.entities;
+package com.example.ejemplomapeoherencia.model.entities;
 
 import jakarta.persistence.Column;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-public class Calzado extends Ropa{
+@Getter
+@Setter
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+public class Calzado extends Ropa {
   @Column(name = "nroCalzado")
   private int nroCalzado;
   @Column(name = "modelo")

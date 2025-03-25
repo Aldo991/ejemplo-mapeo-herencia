@@ -1,5 +1,7 @@
-package com.example.ejemplopersistencia.services;
+package com.example.ejemplomapeoherencia.services;
+
+import com.example.ejemplomapeoherencia.dtos.RopaDto;
 
 public interface IRopaService {
-  Long crearRopa();
+  Long crearRopa(RopaDto ropaDto);
 }
