@@ -8,15 +8,15 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@Entity
-@Table(name = "Ropa")
 @AllArgsConstructor
 @NoArgsConstructor
-@Inheritance(strategy = InheritanceType.JOINED)
-public class Ropa {
+@Entity
+@DiscriminatorColumn(name = "tipoRopa")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+public abstract class Ropa {
   @Id
-  @GeneratedValue
-  protected Long id;
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  private Long id;
   @Column(name = "marca")
-  protected String marca;
+  private String marca;
 }

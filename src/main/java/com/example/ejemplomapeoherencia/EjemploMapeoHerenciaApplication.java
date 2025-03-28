@@ -9,5 +9,4 @@ public class EjemploMapeoHerenciaApplication {
   public static void main(String[] args) {
     SpringApplication.run(EjemploMapeoHerenciaApplication.class, args);
   }
-
 }
