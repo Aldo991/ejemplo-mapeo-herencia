@@ -1,11 +1,12 @@
 package com.example.ejemplomapeoherencia.controllers;
 
-import com.example.ejemplomapeoherencia.dtos.RopaDto;
+import com.example.ejemplomapeoherencia.dtos.input.RopaDto;
 import com.example.ejemplomapeoherencia.services.IRopaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,8 +26,10 @@ public class RopaController {
         .body(this.ropaService.crearRopa(ropaDto));
   }
 
-  @GetMapping
-  public String llegoUnaSolicitud() {
-    return "LLEGO UNA SOLICITUD";
+  @GetMapping({"/id"})
+  public ResponseEntity<?> llegoUnaSolicitud(@PathVariable Long idRopa) {
+    return ResponseEntity
+        .status(HttpStatus.OK)
+        .body(this.ropaService.obtenerRopa(idRopa));
   }
 }

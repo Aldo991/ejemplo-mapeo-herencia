@@ -1,22 +1,27 @@
 package com.example.ejemplomapeoherencia.model.entities;
 
+import com.example.ejemplomapeoherencia.dtos.output.RopaOutputDto;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor
 @Entity
-@DiscriminatorColumn(name = "tipoRopa")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "tipoDeRopa")
 public abstract class Ropa {
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
+
   @Column(name = "marca")
   private String marca;
+
+  public RopaOutputDto toDto() {
+    return RopaOutputDto.builder()
+        .marca(this.marca)
+        .id(this.id)
+        .build();
+  }
 }

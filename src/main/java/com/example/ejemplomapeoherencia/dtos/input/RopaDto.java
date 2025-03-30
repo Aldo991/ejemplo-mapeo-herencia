@@ -1,6 +1,5 @@
-package com.example.ejemplomapeoherencia.dtos;
+package com.example.ejemplomapeoherencia.dtos.input;
 
-import com.example.ejemplomapeoherencia.model.entities.Talle;
 import lombok.Data;
 
 @Data
